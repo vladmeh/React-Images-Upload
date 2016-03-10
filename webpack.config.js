@@ -1,13 +1,13 @@
+var debug = process.env.NODE_ENV !== "production";
+var webpack = require('webpack');
+var path = require('path');
+
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
   filename: 'index.html',
   inject: 'body'
 });
-
-var debug = process.env.NODE_ENV !== "production";
-var webpack = require('webpack');
-var path = require('path');
 
 module.exports = {
   context: path.join(__dirname, "app"),
@@ -16,7 +16,7 @@ module.exports = {
     './index.js'
   ],
   output: {
-    path: __dirname + '/dist',
+    path: debug ? __dirname + '/dist' : __dirname,
     filename: "index_bundle.js"
   },
   module: {
