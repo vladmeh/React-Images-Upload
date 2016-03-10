@@ -17,7 +17,7 @@ module.exports = {
   ],
   output: {
     path: debug ? __dirname + '/dist' : __dirname,
-    filename: "index_bundle.js"
+    filename: debug ? "index_bundle.js" : "index.min.js"
   },
   module: {
     loaders: [
